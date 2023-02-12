@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon-57x57.png">
 
-    <title>Ello by Distinctive Themes</title>
+    <title>404NotFound: Russian-Ukraine War News Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -94,59 +94,10 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home <span class="pe-7s-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="index.php">Home Agency</a></li>
-                            <li><a href="index-blog.html">Home Blog</a></li>
-                            <li><a href="index-resume.html">Home Resume</a></li>
-                            <li><a href="index-portfolio.html">Home Video</a></li>
-                            <li><a href="index-shop.html">Home Shop</a></li>
-                            <li><a href="index-app.html">Home App Landing</a></li>
-                            <li><a href="index-singlepage.html">Home Single Page</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="pe-7s-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="category-grid.html">Category Grid</a></li>
-                            <li><a href="index.php?r=ru-news">Category Traditional</a></li>
-                            <li><a href="single-post.html">Single Post</a></li>
-                            <li><a href="single-post-fullwidth.html">Single Post Fullwidth</a></li>
-                            <li><a href="single-post-sidebar.html">Single Post Sidebar</a></li>
-                            <li><a href="single-post-gallery.html">Single Post Gallery</a></li>
-                            <li><a href="single-post-lightbox-gallery.html">Single Post Lightbox Gallery</a></li>
-                            <li><a href="single-post-video.html">Single Post Video</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Portfolio <span class="pe-7s-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="portfolio-grid.html">Portfolio Grid</a></li>
-                            <li><a href="single-portfolio.html">Single Portfolio</a></li>
-                            <li><a href="single-portfolio-video.html">Single Portfolio Video</a></li>
-                            <li><a href="single-portfolio-large.html">Single Portfolio Fullscreen</a></li>
-                            <li><a href="single-portfolio-video-large.html">Single Portfolio Fullscreen Video</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop <span class="pe-7s-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="index-shop.html">Shop</a></li>
-                            <li><a href="single-product.html">Single Product</a></li>
-                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <span class="pe-7s-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                        </ul>
-                    </li>
-
+                    <li><a href="index.php">Home</a></li>
+                    <li><a class="page-scroll" href="#news">News</a></li>
+                    <li><a class="page-scroll" href="#footerwrap">Footer</a></li>
+                    <li><a href="coming-soon.html">Coming Soon</a></li>
                     <li><a id="searchtrigger" href="#"><i class="fa fa-search"></i></a></li>
                 </ul>
             </div>
@@ -167,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </header>
 
-    <section class="white section-wrapper">
+    <section id="news" class="white section-wrapper">
         <div class="section-inner">
             <div class="container">
                 <div class="row">
@@ -196,40 +147,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <p>%s</p>
                                                 <div class="item-metas smoothtransition">
                                                     <div>
-                                                        <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                                        <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
+                                                        <strong class="colour-hover"><i class="fa fa-clock-o"></i> %s </strong>
+                                                        <strong class="colour-hover"><i class="fa fa-comment"></i> %s </strong>
                                                         <strong class="pull-right colour-hover"><a href="https://www.nytimes.com/%s" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>', $item->url, $item->title, $item->description, $item->url));
+                                        </div>', $item->url, $item->title, $item->description, $item->date, $item->comment_num, $item->url));
                                 }
                             ?>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/portfolio/portfolio1.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Tall Tales</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Tall Tales</a></h2>
-                                    <p>Mr be cottage so related minuter is. Delicate say and blessing ladyship exertion few margaret. Delight herself welcome against smiling its for. Suspected discovery by he affection household of principle perfectly he. Mr be cottage so related minuter is. Delicate say and blessing ladyship exertion few margaret. Delight herself welcome against smiling its for. Suspected discovery by he affection household of principle perfectly he.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-12 mt wow fadeInUp">
-                                <a href="category-traditional.html" class="btn btn-theme pull-left">Previous Posts</a>
-                                <a href="category-traditional.html" class="btn btn-theme pull-right">Next Posts</a>
+                                <a href="#" class="btn btn-theme pull-left">Previous Posts</a>
+                                <a href="#" class="btn btn-theme pull-right">Next Posts</a>
                             </div>
                         </div>
                     </div>
@@ -240,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="row">
                                     <ul class="direction-aware owl-carousel-paged wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
                                         <?php
-                                            $model = RuNews::findBySql('select * from ru_news')->all();
+                                            $model = RuNews::findBySql('select * from ru_news order by id desc')->all();
                                             $i = 0;
                                             foreach($model as $item){
                                                 echo (
@@ -265,7 +194,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
                                 <div>
                                     <?php   
-                                        $model = RuNews::findBySql('select * from ru_news')->all();
+                                        $model = RuNews::findBySql('select * from ru_news order by score desc')->all();
                                         $i = 0;
                                         foreach($model as $item){
                                             echo (
@@ -280,26 +209,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                             echo (sprintf(
                                                         '<div class="muted">
                                                             <ul class="list-inline post-meta-list">
-                                                                <li><i class="pe-7s-clock"></i> <a href="https://www.nytimes.com/%s" title="">10/12/2014</a></li>
-                                                                <li><i class="pe-7s-user"></i> <a href="https://www.nytimes.com/%s" title="">%s</a></li>
-                                                            </div></div></div>', $item->url, $item->url, $item->author));
+                                                                <li><i class="pe-7s-clock"></i> <a href="https://www.nytimes.com/%s" title=""> %s</a></li>
+                                                                <li><i class="pe-7s-user"></i> <a href="https://www.nytimes.com/%s" title=""> %s</a></li>
+                                                            </div></div></div>', $item->url, $item->date, $item->url, $item->author));
                                             if(++$i >= 4) break;
                                         }
                                     ?>
-                                    <div class="media">
-                                        <div class="pull-left">
-                                            <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="media-heading"><a class="coloured" href="#">Blog Post A</a></span>
-                                            <div class="muted">
-                                                <ul class="list-inline post-meta-list">
-                                                    <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>
-                                                    <li><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -333,61 +248,30 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-md-3 col-sm-6">
                         <div class="widget about-us-widget">
                             <h4 class="widget-title"><strong>Global</strong> Coverage</h4>
-                            <p>Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin.</p>
+                            <p>The site presents different data including battle line graphs, loss data charts, timeline and major events, New York Times news handling and weapons display modules used, and a suggestion and feedback module at the end. </p>
                         </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6">
                         <div class="widget">
-                            <h4 class="widget-title"><strong>Recent</strong> Tweets</h4>
-                            <script type="text/javascript">
-                                jQuery(function($) {
-                                    $('.twitter-feed').twittie({
-                                        username: 'DistinctThemes',
-                                        apiPath: 'twitter/tweet.php',
-                                        dateFormat: '%b. %d, %Y',
-                                        template: '<div class="row"><div class="col-xs-3 nopaddingright">{{avatar}}</div><div class="col-xs-9"><p>{{tweet}}</p></div></div>',
-                                        count: 10
-                                    }, function() {
-                                        setInterval(function() {
-                                            var item = $('.twitter-feed ul').find('li:first');
-                                            item.animate({
-                                                marginLeft: '0px',
-                                                'opacity': '0'
-                                            }, 500, function() {
-                                                $(this).detach().appendTo('.twitter-feed ul').removeAttr('style');
-                                            });
-                                        }, 8000);
-                                        jQuery('.twitter-feed li img').attr('src', function(i, src) {
-                                            return src.replace('_normal', '');
-                                        });
-                                    });
-                                });
-                            </script>
-                            <div class="twitter-feed"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                            <h4 class="widget-title"><strong>Team</strong> Members</h4>
                             <div>
                                 <div class="media">
                                     <div class="pull-left">
-                                        <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
+                                        <img src="assets/img/team/h1-s.jpg" class="widget-img" alt="image">
                                     </div>
                                     <div class="media-body">
-                                        <span class="media-heading"><a href="#">Blog Post A</a></span>
-                                        <small class="muted">Posted 14 April 2019</small>
+                                        <span class="media-heading"><a href="#">卻铭恺</a></span>
+                                        <small class="muted">——穿过乌云。</small>
                                     </div>
                                 </div>
                                 <div class="media">
                                     <div class="pull-left">
-                                        <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="">
+                                        <img src="assets/img/team/h2-s.jpg" class="widget-img" alt="image">
                                     </div>
                                     <div class="media-body">
-                                        <span class="media-heading"><a href="#">Blog Post B</a></span>
-                                        <small class="muted">Posted 14 April 2019</small>
+                                        <span class="media-heading"><a href="#">王一如</a></span>
+                                        <small class="muted">——carpe diem.</small>
                                     </div>
                                 </div>
                             </div>
@@ -396,20 +280,44 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <div class="col-md-3 col-sm-6">
                         <div class="widget">
-                            <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                            <h4 class="widget-title"><strong>Team</strong> Members</h4>
+                            <div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="assets/img/team/h3-s.jpg" class="widget-img" alt="image">
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="media-heading"><a href="#">苏雨佳</a></span>
+                                        <small class="muted">——我与我周旋久，宁做我。</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="assets/img/team/h4-s.jpg" class="widget-img" alt="image">
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="media-heading"><a href="#">罗昕珂</a></span>
+                                        <small class="muted">——认真工作，早点睡觉。</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h4 class="widget-title"><strong>Latest</strong> Topics</h4>
                             <div class="tagcloud">
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Local</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Business</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Media</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Photogtraphy</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Aid</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Fashion</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">News</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Cars</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Global Affairs</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Music</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Downloads</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">MP3</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Russian</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Ukraine</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">War</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Time</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Feast</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Battle</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Rival</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Profit</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Key</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">U.S</a>
                             </div>
                         </div>
                     </div>
@@ -422,8 +330,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2019 | Designed By Distinctive Themes</p> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-
+                        <p>Copyright 2023 | Designed By Distinctive Themes and Team 404NotFound.</p>
                     </div>
                 </div>
             </div>
@@ -442,7 +349,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-<div class="ru-news-index">
+<!-- <div class="ru-news-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -474,4 +381,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
 
-</div>
+</div> -->
