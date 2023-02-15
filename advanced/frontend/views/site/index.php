@@ -5,6 +5,7 @@
  *  Coding by Que MingKai 2012411
  *            Su YuJia    2011068
  *            Luo XinKe   2013622
+ *            Wang YiRu   1911573
  *            2023/2/8
  *  new frontend's index.php 
  *  loss weapons' kind 
@@ -25,7 +26,11 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 
 if (Yii::$app->session->hasFlash('success_save'))
-    //echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";
+    echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";
+if(Yii::$app->session->getFlash('login')=='Have not logged in.') {
+    echo "<script>alert('Please log in first!')</script>";
+    Url::to(['#login']);
+}
 ?>
 
 <!--
@@ -894,17 +899,21 @@ if (Yii::$app->session->hasFlash('success_save'))
             </div>
         </div>
     </section>
-
-
-    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg1.jpg" data-speed="0.7">
+    
+    <section id="login" class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg1.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
                 <div class="row wow fadeInUp">
                     <div class="col-md-12 centered">
-                        <form id="subscribe-box" role="form" action="register.php" method="post">
-                            <input type="email" name="email" class="form-control outlined subscribe-input" placeholder="Enter your e-mail address..." required>
-                            <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit">Sign Up</button>
-                        </form>
+                    <div class='btn btn-theme btn-white pull-left subscribe-submit' style="font-size:30px;">404 NOT FOUND</div>
+                        <?php if(Yii::$app->session->getFlash('login')=='Already log in.'){
+                        ?>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit"><?= Html::a('Log Out', ['site/logout']) ?></button>
+                        <?php } 
+                        else{?>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit" style="margin-left: 50px;"><?= Html::a('Log In', ['site/login']) ?></button>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit"><?= Html::a('Sign Up', ['site/signup']) ?></button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -973,7 +982,7 @@ if (Yii::$app->session->hasFlash('success_save'))
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="widget about-us-widget">
-                            <h4 class="widget-title"><strong>Global</strong> Coverage</h4>
+                            <h4 class="widget-title"><strong>Brief</strong> Introduction</h4>
                             <p>The site presents different data including battle line graphs, loss data charts, timeline and major events, New York Times news handling and weapons display modules used, and a suggestion and feedback module at the end. </p>
                         </div>
                     </div>
@@ -1141,7 +1150,7 @@ if (Yii::$app->session->hasFlash('success_save'))
             tooltip: {
                 position: 'top'
             },
-             dataZoom: [{
+            dataZoom: [{
                  type: 'inside'
              }],
             grid: {
@@ -1502,53 +1511,71 @@ if (Yii::$app->session->hasFlash('success_save'))
             $index = 0;
             $pre = 0;
             foreach ($model4 as $item) {
-                echo ('{value: '. $item->num .', name : "'. $item->country_name .'"},');
+                echo ('["'. $item->country_name .'", '. $item->num .'],');
             }
             ?>
             ]
+            
         var option4 = {
                 title: {
-                    text: 'The Proportion Of Weapons In The War',
+                    text: "Nationality Of Weapon Companies",
                     left: '18%',
                     textStyle:{
                         fontSize:30, //字体大小
                         color:'#221414'
                     }
                 },
-                color: [
-                    '#988D80',
-                    '#7F4620',
-                    '#624F40',
-                    '#223B3A',
-                    '#532B23',
-                    '#505B59',
-                    '#343231',
-                    '#714641',
-                    '#7289ab',
-                    '#5C4F43',
-                    '#8E5118',
-                    '#998A7E',
-                    '#B6B6B6',
-                    '#414141'
-                ],
+                xAxis: {
+                    type: 'category',
+                    name:'country',
+                    nameTextStyle:{//x坐标轴名称的字体样式
+                        color:'#221414', 
+                        fontSize:16
+                    }
+                },
+                dataZoom: [{
+                    type: 'inside'
+                }],
+                yAxis: {
+                    type: 'value',
+                    name:'Company num',
+                    nameTextStyle:{
+                        color:'#221414', 
+                        fontSize:16
+                    }
+                },
+                color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                        offset: 0,
+                        color: '#988D80'
+                    },
+                    {
+                        offset: 1,
+                        color: '#7F4620'
+                    }
+                ]),
 
             series: [
                 {
-                type: 'pie',
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(180, 180, 180, 0.2)'
+                },
                 data: data4,
-                        avoidLabelOverlap: false,
-                        selectedMode: 'single',
-                        label: {
-                            position: 'outer',
-                            fontSize: 14
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        }
+                avoidLabelOverlap: false,
+                selectedMode: 'single',
+                label: {
+                    position: 'outer',
+                    fontSize: 14
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
                 }
             ]
         };
